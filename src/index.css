@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --ink: #0E1420;
+  --muted: #5A6472;
+  --accent: #B7F04A;
+  --micro: #FF5C38;
+  --border: #E7E7E2;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+
+  --footer-text: rgba(250,250,247,0.55);
+  --footer-text-hover: rgba(250,250,247,0.95);
+  --footer-text-muted: rgba(250,250,247,0.3);
+  --footer-text-strong: rgba(250,250,247,0.6);
+  --footer-border: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] {
+  --bg: #0E1420;
+  --surface: #161B26;
+  --ink: #FAFAF7;
+  --muted: #9CA3AF;
+  --accent: #B7F04A;
+  --micro: #FF5C38;
+  --border: #2A3142;
+
+  --footer-text: rgba(14,20,32,0.6);
+  --footer-text-hover: rgba(14,20,32,0.95);
+  --footer-text-muted: rgba(14,20,32,0.35);
+  --footer-text-strong: rgba(14,20,32,0.7);
+  --footer-border: rgba(14,20,32,0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+}
+
+.font-display { font-family: var(--font-display); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Dot grid pattern */
+.dot-grid {
+  background-image: radial-gradient(circle at center, rgba(14, 20, 32, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* QR pixel decorative pattern */
+.qr-pixel {
+  width: 6px;
+  height: 6px;
+  background: var(--ink);
+  border-radius: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .dot-grid {
+  background-position: right center;
+}
+
+[dir="rtl"] input,
+[dir="rtl"] textarea {
+  text-align: right;
+}
